@@ -1,0 +1,14 @@
+{
+  "kind": "collectionType",
+  "collectionName": "custom_auths",
+  "info": {
+    "singularName": "custom-auth",
+    "pluralName": "custom-auths",
+    "displayName": "CustomAuth"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {}
+}

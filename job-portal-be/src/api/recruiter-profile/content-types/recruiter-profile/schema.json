@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "recruiter_profiles",
+  "info": {
+    "singularName": "recruiter-profile",
+    "pluralName": "recruiter-profiles",
+    "displayName": "RecruiterProfile"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "designation": {
+      "type": "string"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "recruiter_profile"
+    },
+    "company": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::company.company",
+      "inversedBy": "recruiter_profiles"
+    },
+    "jobs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::job.job",
+      "mappedBy": "recruiter_profile"
+    }
+  }
+}

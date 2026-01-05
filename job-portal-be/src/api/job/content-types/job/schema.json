@@ -1,0 +1,76 @@
+{
+  "kind": "collectionType",
+  "collectionName": "jobs",
+  "info": {
+    "singularName": "job",
+    "pluralName": "jobs",
+    "displayName": "Job"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "location": {
+      "type": "string"
+    },
+    "salary": {
+      "type": "biginteger"
+    },
+    "jobStatus": {
+      "type": "enumeration",
+      "enum": [
+        "Open",
+        "Closed",
+        "Draft"
+      ]
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "jobs"
+    },
+    "company": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::company.company",
+      "inversedBy": "jobs"
+    },
+    "skills": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::skill.skill",
+      "inversedBy": "jobs"
+    },
+    "experienceRequired": {
+      "type": "integer"
+    },
+    "jobType": {
+      "type": "enumeration",
+      "enum": [
+        "Full-time",
+        "Internship",
+        "Contract"
+      ]
+    },
+    "recruiter_profile": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::recruiter-profile.recruiter-profile",
+      "inversedBy": "jobs"
+    },
+    "job_applications": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::job-application.job-application",
+      "mappedBy": "job"
+    }
+  }
+}

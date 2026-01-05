@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "job_applications",
+  "info": {
+    "singularName": "job-application",
+    "pluralName": "job-applications",
+    "displayName": "JobApplication"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "applicationStatus": {
+      "type": "enumeration",
+      "enum": [
+        "applied",
+        "shortlisted",
+        "rejected",
+        "hired"
+      ]
+    },
+    "appliedAt": {
+      "type": "date"
+    },
+    "job": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::job.job",
+      "inversedBy": "job_applications"
+    },
+    "candidate_profile": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::candidate.candidate",
+      "inversedBy": "job_applications"
+    }
+  }
+}
